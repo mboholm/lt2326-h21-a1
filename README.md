@@ -5,7 +5,10 @@ This repository contains my code for Assignment 1, (course) LT2326, autumn 2021.
 *    `lt2326-h21-a1.ipynb` this is the file which implements the solution for Assignment 1
 *    `obsolete.ipynb` obsolete code, *please ignore*
 *    `utils_DimensionTransformationsCNNs.ipynb` contains code for finding workable transformations of dimensions in CNNs; *can be ignored*
-*    `Diabolo512to512_e400b128_n845_mse.pt` the best model, **trained for images reduced to 512 x 512 and for a target size of 512 x 512**
+*    `Diabolo512to512_e400b128_n845_mse.pt` the best model.
+*    `CUP512to512_e200n128_n845.pt` almost as good model with the other design. 
+
+**Both models are trained for images reduced to 512 x 512 and for a target size of 512 x 512**
 
 ## A note on performance
 The trained models (including the best one) does not perform well in terms of F1 (recall is very low). In terms of accuracy and Mean Square Error, both models are at first glance impressive, but this must be interpreted in relation to the task at hand. For this task, a baseline model of "always-predict-zero-probability-for-a-pixel" will in general get high scores of accuracy and have low MSE. When trained, both models seem to converge to the "always-predict-zero-probability-for-a-pixel" strategy, especially with large minibatches, e.g. of size 128. Possibly, there is a local minimum of the loss function associated with "always-predict-zero-probability-for-a-pixel" weigths. The relevant question is then how to create a model that does not get stuck at that minimum... a question for which I have no answer (more data is probably part of the answer; better models another). 
